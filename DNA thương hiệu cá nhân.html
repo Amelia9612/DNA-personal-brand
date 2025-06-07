@@ -1,0 +1,2117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Personal Brand DNA Decoder</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.4em;
+            margin-bottom: 20px;
+            opacity: 0.95;
+        }
+        
+        .masters-tribute {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .master-card {
+            background: rgba(255,255,255,0.15);
+            padding: 12px 20px;
+            border-radius: 15px;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-size: 0.9em;
+            backdrop-filter: blur(10px);
+        }
+        
+        .master-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.25);
+        }
+        
+        .framework-highlight {
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
+            border: 3px solid #f39c12;
+            border-radius: 20px;
+            padding: 25px;
+            margin: 25px 0;
+            color: #856404;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .progress-container {
+            background: rgba(255,255,255,0.15);
+            height: 12px;
+            border-radius: 15px;
+            margin: 25px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #ffd700 0%, #ff6b6b 50%, #4ecdc4 100%);
+            height: 100%;
+            width: 12.5%;
+            border-radius: 15px;
+            transition: all 0.8s ease;
+        }
+        
+        .step {
+            display: none;
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 45px;
+            margin-bottom: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        
+        .step.active {
+            display: block;
+            animation: slideIn 0.8s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .step-title {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            margin: -45px -45px 35px -45px;
+            border-radius: 25px 25px 0 0;
+            font-size: 1.5em;
+            font-weight: 700;
+            text-align: center;
+        }
+        
+        .master-quote {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%);
+            border-left: 6px solid #28a745;
+            padding: 20px 25px;
+            margin: 20px 0;
+            border-radius: 0 15px 15px 0;
+            font-style: italic;
+            font-size: 1.05em;
+        }
+        
+        .quote-author {
+            font-weight: 700;
+            color: #155724;
+            margin-top: 10px;
+            text-align: right;
+            font-style: normal;
+        }
+        
+        .question {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 18px;
+            border: 2px solid #f0f4f8;
+            transition: all 0.4s ease;
+        }
+        
+        .question:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.12);
+        }
+        
+        .question label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #2d3748;
+            font-size: 1.1em;
+        }
+        
+        .question textarea, .question input, .question select {
+            width: 100%;
+            padding: 18px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .question textarea:focus, .question input:focus, .question select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+        }
+        
+        .question textarea {
+            resize: vertical;
+            min-height: 140px;
+            line-height: 1.7;
+        }
+        
+        .checkbox-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+        
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            padding: 18px;
+            background: #f8f9fa;
+            border-radius: 15px;
+            border: 2px solid #e2e8f0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .checkbox-item:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+        }
+        
+        .checkbox-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 15px;
+            transform: scale(1.3);
+        }
+        
+        .checkbox-item label {
+            margin-bottom: 0;
+            cursor: pointer;
+            font-weight: 500;
+            flex: 1;
+        }
+        
+        .range-container {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        .range-container label {
+            width: 150px;
+            margin-bottom: 0;
+            font-weight: 600;
+        }
+        
+        .range-container input[type="range"] {
+            flex: 1;
+            margin: 0 15px;
+        }
+        
+        .range-container span {
+            font-weight: bold;
+            min-width: 30px;
+            color: #667eea;
+        }
+        
+        .step-info {
+            background: rgba(255,255,255,0.92);
+            padding: 12px 25px;
+            border-radius: 30px;
+            color: #667eea;
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 45px;
+            gap: 25px;
+        }
+        
+        .btn {
+            padding: 18px 35px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+        
+        .btn-next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            flex: 1;
+            max-width: 220px;
+            margin-left: auto;
+        }
+        
+        .btn-prev {
+            background: linear-gradient(135deg, #6c757d 0%, #495057 100%);
+            color: white;
+            max-width: 180px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+        }
+        
+        .action-checklist {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%);
+            border: 2px solid #28a745;
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .action-checklist h4 {
+            color: #155724;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .action-checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .action-checklist li {
+            padding: 8px 0;
+            color: #155724;
+            font-weight: 500;
+        }
+        
+        .result {
+            background: rgba(255,255,255,0.95);
+            border-radius: 25px;
+            padding: 45px;
+            margin-bottom: 25px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            display: none;
+        }
+        
+        .result.active {
+            display: block;
+            animation: resultAppear 1s ease;
+        }
+        
+        @keyframes resultAppear {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .result h3 {
+            color: #667eea;
+            margin-bottom: 25px;
+            font-size: 1.5em;
+            border-bottom: 3px solid #e2e8f0;
+            padding-bottom: 18px;
+            font-weight: 700;
+        }
+        
+        .result pre {
+            background: #f8f9ff;
+            padding: 30px;
+            border-radius: 15px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border: 2px solid #e8ecff;
+            line-height: 1.8;
+            font-size: 14px;
+            max-height: 600px;
+            overflow-y: auto;
+            font-family: Consolas, Monaco, monospace;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+        }
+        
+        .copy-btn.copied {
+            background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+        }
+        
+        .export-section {
+            display: flex;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .export-btn {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .export-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3);
+        }
+        
+        .loading {
+            text-align: center;
+            color: #667eea;
+            font-size: 1.4em;
+            margin: 40px 0;
+            font-weight: 600;
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 1000;
+            max-width: 300px;
+            animation: slideInFromRight 0.5s ease;
+        }
+        
+        @keyframes slideInFromRight {
+            from { transform: translateX(400px); }
+            to { transform: translateX(0); }
+        }
+        
+        .auto-save-indicator {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .auto-save-indicator.show {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .container { padding: 15px; }
+            .step { padding: 30px 25px; }
+            .step-title { padding: 20px; margin: -30px -25px 30px -25px; }
+            .checkbox-grid { grid-template-columns: 1fr; }
+            .nav-buttons { flex-direction: column; gap: 15px; }
+            .btn-next, .btn-prev { max-width: 100%; }
+            .masters-tribute { gap: 10px; }
+            .master-card { padding: 8px 15px; font-size: 0.8em; }
+            .export-section { flex-direction: column; }
+            .range-container { flex-direction: column; gap: 10px; }
+            .range-container label { width: auto; }
+            .header h1 { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧬 ULTIMATE PERSONAL BRAND DNA DECODER</h1>
+            <div class="subtitle">Kết hợp tinh hoa từ Dan Koe, Matt Grey, Alex Hormozi & Nghiem Hue</div>
+            
+            <div class="masters-tribute">
+                <div class="master-card">
+                    <div>🧬 Dan Koe</div>
+                    <div style="font-size: 0.8em; opacity: 0.8;">You Are The Niche</div>
+                </div>
+                <div class="master-card">
+                    <div>📈 Matt Grey</div>
+                    <div style="font-size: 0.8em; opacity: 0.8;">Problem-Solution Fit</div>
+                </div>
+                <div class="master-card">
+                    <div>🧠 Alex Hormozi</div>
+                    <div style="font-size: 0.8em; opacity: 0.8;">Value Equation</div>
+                </div>
+                <div class="master-card">
+                    <div>🎯 Nghiem Hue</div>
+                    <div style="font-size: 0.8em; opacity: 0.8;">Integrated Framework</div>
+                </div>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+            <div class="step-info" id="stepInfo">Bước 1/8: Personal Story Analysis</div>
+        </div>
+        
+        <!-- STEP 1 -->
+        <div class="step active" id="step1">
+            <div class="step-title">📖 BƯỚC 1: PERSONAL STORY ANALYSIS</div>
+            
+            <div class="framework-highlight">
+                🧬 Integrated DNA Framework: Kết hợp Dan Koe + Matt Grey + Alex Hormozi + Nghiem Hue
+            </div>
+            
+            <div class="master-quote">
+                Your story is your brand. Treat your ideal future as the end goal of the story.
+                <div class="quote-author">- Dan Koe</div>
+            </div>
+            
+            <div class="question">
+                <label>📚 Viết câu chuyện cuộc đời bạn theo cấu trúc Point A → Point B:</label>
+                <textarea id="personalStory" placeholder="Point A (Starting point): Mô tả tình huống xuất phát - struggle, thách thức...
+
+Point B (Vision): Tương lai lý tưởng - lifestyle, thu nhập, impact, freedom...
+
+Key Transformation Moments:
+- Khoảnh khắc breakthrough đầu tiên
+- Thất bại lớn nhất và bài học rút ra  
+- Skills quan trọng đã master
+- Những người/sự kiện đã thay đổi mindset
+
+Problems You've Solved:
+- Vấn đề nào bạn đã overcome cho bản thân?
+- Ai thường hỏi bạn lời khuyên về chủ đề gì?
+- Transformation nào bạn có thể help người khác achieve?"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>🎯 Matt Grey Formula: "Tôi giúp [AI] đạt được [ĐIỀU GÌ] thông qua [PHƯƠNG PHÁP]"</label>
+                <textarea id="helpStatement" placeholder="Viết 3-5 phiên bản khác nhau:
+
+Ví dụ:
+- Tôi giúp startup founders xây dựng product-market fit thông qua customer discovery
+- Tôi giúp content creators tăng engagement thông qua storytelling psychology
+- Tôi giúp solopreneurs scale business thông qua automation systems
+
+Hãy viết các phiên bản cho situation của bạn:"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>⚡ Flow State Activities - Những việc khiến bạn quên thời gian:</label>
+                <textarea id="flowActivities" placeholder="Mô tả chi tiết:
+- Hoạt động nào bạn có thể làm hàng giờ mà không thấy mệt?
+- Khi nào bạn cảm thấy trong trạng thái flow nhất?
+- Việc gì khiến bạn excited và energized?
+- Skill nào bạn develop naturally mà không cần force?"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>🎪 Unique DNA Combination - Sự kết hợp độc đáo của bạn:</label>
+                <textarea id="uniqueCombination" placeholder="Công thức DNA: [Skill Stack] + [Interest Areas] + [Value System] = YOUR UNIQUE BRAND
+
+Ví dụ:
+- Tech + Psychology + Teaching = Ed-tech innovator  
+- Finance + Fitness + Content = Wealth-building coach
+- Design + Business + Spirituality = Conscious brand strategist
+
+Phân tích DNA của bạn:
+Skill Stack (3 kỹ năng chính):
+Interest Areas (3 lĩnh vực đam mê):  
+Value System (3 giá trị cốt lõi):
+
+Tại sao combination này powerful và rare?"></textarea>
+            </div>
+            
+            <div class="action-checklist">
+                <h4>✅ Validation Checklist:</h4>
+                <ul>
+                    <li>Story resonates với ít nhất 3 người khi share</li>
+                    <li>Help statement clear và specific</li>
+                    <li>Flow activities align với business potential</li>
+                    <li>DNA combination feels authentic và exciting</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- STEP 2 -->
+        <div class="step" id="step2">
+            <div class="step-title">🧠 BƯỚC 2: WORLDVIEW & PHILOSOPHY</div>
+            
+            <div class="framework-highlight">
+                🎯 Dan Koe Philosophy Framework: Your answer to "How does one live the good life?"
+            </div>
+            
+            <div class="master-quote">
+                Your philosophy is your answer to how one lives the good life. You must constantly illustrate the importance of what you believe.
+                <div class="quote-author">- Dan Koe</div>
+            </div>
+            
+            <div class="question">
+                <label>🌟 Ideal Future Vision - Cuộc sống lý tưởng chi tiết:</label>
+                <textarea id="idealFuture" placeholder="Mô tả cụ thể như một ngày trong cuộc sống ideal:
+
+LIFESTYLE:
+- Daily routine lý tưởng từ 6AM đến 10PM
+- Nơi sống, không gian làm việc
+- Relationships và social connections
+- Health & wellness practices
+
+WORK & IMPACT:
+- Type of work và projects
+- Số giờ làm việc mỗi ngày
+- Income level và financial freedom
+- Impact tạo ra cho bao nhiêu người
+
+FREEDOM & FULFILLMENT:
+- Travel và experiences
+- Learning và growth activities  
+- Creative expressions
+- Legacy muốn để lại"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>👹 The Enemy - Cuộc sống bạn muốn tránh xa:</label>
+                <textarea id="theEnemy" placeholder="Anti-vision - Những gì bạn KHÔNG muốn:
+
+LIFESTYLE TRAPS:
+- Daily routine nightmare
+- Living situations khiến bạn depressed
+- Toxic relationships và environments
+- Health issues từ bad habits
+
+WORK MISERY:
+- Jobs hoặc careers bạn ghét
+- Income instability và financial stress
+- Meaningless work không có impact
+- Workspace environments toxic
+
+FREEDOM KILLERS:
+- Dependencies khiến bạn stuck
+- Obligations không align với values
+- Social expectations limiting potential
+- Systems trapping bạn trong mediocrity"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>🔥 Extreme Beliefs & Controversial Opinions:</label>
+                <textarea id="extremeBeliefs" placeholder="Những quan điểm controversial nhưng bạn tin chắc:
+
+SOCIETY & SYSTEMS:
+- Educational system
+- Corporate culture  
+- Social media usage
+- Traditional career paths
+
+PERSONAL DEVELOPMENT:
+- Self-help industry
+- Productivity myths
+- Success definitions
+- Work-life balance concepts
+
+YOUR INDUSTRY:
+- Common practices bạn disagree
+- Popular advice bạn thấy harmful
+- Trends bạn predict will fail
+- Truths mà people avoid
+
+Note: Extreme beliefs tạo content viral và attract right audience!"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>⚖️ Core Values System - 5 giá trị định hình decisions:</label>
+                <div class="checkbox-grid">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="freedom" name="coreValues" value="Freedom">
+                        <label for="freedom">Freedom/Autonomy</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="growth" name="coreValues" value="Growth">
+                        <label for="growth">Growth/Learning</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="impact" name="coreValues" value="Impact">
+                        <label for="impact">Impact/Contribution</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="authenticity" name="coreValues" value="Authenticity">
+                        <label for="authenticity">Authenticity/Truth</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="creativity" name="coreValues" value="Creativity">
+                        <label for="creativity">Creativity/Innovation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="excellence" name="coreValues" value="Excellence">
+                        <label for="excellence">Excellence/Mastery</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="connection" name="coreValues" value="Connection">
+                        <label for="connection">Connection/Love</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="adventure" name="coreValues" value="Adventure">
+                        <label for="adventure">Adventure/Experience</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-checklist">
+                <h4>✅ Philosophy Validation:</h4>
+                <ul>
+                    <li>Ideal future motivates bạn mỗi ngày</li>
+                    <li>Enemy vision tạo urgency để thay đổi</li>
+                    <li>Extreme beliefs authentic với experience</li>
+                    <li>Core values guide major decisions</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- STEP 3 -->
+        <div class="step" id="step3">
+            <div class="step-title">🎓 BƯỚC 3: SKILL STACK & KNOWLEDGE</div>
+            
+            <div class="framework-highlight">
+                💡 Integrated Learning Framework: formal + self-directed + practical experience
+            </div>
+            
+            <div class="question">
+                <label>📚 Tribe of Mentors - Influences đã shaped mindset:</label>
+                <textarea id="tribeOfMentors" placeholder="List people đã significantly impact thinking:
+
+DIRECT MENTORS (Personal relationships):
+- Tên, role, key lessons learned
+- Moments they changed your perspective
+- Advice that stuck with you
+
+INTELLECTUAL INFLUENCES (Books, content):
+- Authors, creators, thought leaders
+- Specific books/content that shifted mindset
+- Frameworks they taught you
+
+REVERSE MENTORS (What NOT to do):
+- Negative examples that shaped approach
+- Mistakes you observed và avoided
+- Anti-patterns trong industry
+
+How do these influences show up in your unique approach?"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>⚡ Current Skill Assessment - Rate yourself (1-10):</label>
+                
+                <div class="range-container">
+                    <label>Writing & Communication:</label>
+                    <input type="range" id="writing" min="1" max="10" value="5">
+                    <span id="writingValue">5</span>
+                </div>
+                
+                <div class="range-container">
+                    <label>Speaking & Presentation:</label>
+                    <input type="range" id="speaking" min="1" max="10" value="5">
+                    <span id="speakingValue">5</span>
+                </div>
+                
+                <div class="range-container">
+                    <label>Marketing & Sales:</label>
+                    <input type="range" id="marketing" min="1" max="10" value="5">
+                    <span id="marketingValue">5</span>
+                </div>
+                
+                <div class="range-container">
+                    <label>Design & Visual:</label>
+                    <input type="range" id="design" min="1" max="10" value="5">
+                    <span id="designValue">5</span>
+                </div>
+                
+                <div class="range-container">
+                    <label>Technical/Coding:</label>
+                    <input type="range" id="technical" min="1" max="10" value="5">
+                    <span id="technicalValue">5</span>
+                </div>
+                
+                <div class="range-container">
+                    <label>Psychology & People:</label>
+                    <input type="range" id="psychology" min="1" max="10" value="5">
+                    <span id="psychologyValue">5</span>
+                </div>
+                
+                <div class="range-container">
+                    <label>Business & Strategy:</label>
+                    <input type="range" id="business" min="1" max="10" value="5">
+                    <span id="businessValue">5</span>
+                </div>
+                
+                <div class="range-container">
+                    <label>Leadership & Management:</label>
+                    <input type="range" id="leadership" min="1" max="10" value="5">
+                    <span id="leadershipValue">5</span>
+                </div>
+            </div>
+            
+            <div class="question">
+                <label>🏆 Achievements & Social Proof:</label>
+                <textarea id="achievements" placeholder="Quantifiable accomplishments:
+
+PROFESSIONAL ACHIEVEMENTS:
+- Job titles, promotions, awards
+- Revenue generated, projects completed
+- Teams led, products launched
+- Industry recognition
+
+PERSONAL ACHIEVEMENTS:  
+- Skills mastered, certifications earned
+- Creative projects, publications
+- Speaking engagements, interviews
+- Community contributions
+
+TRANSFORMATIONAL RESULTS:
+- Personal improvements (health, wealth, relationships)
+- Obstacles overcome
+- Habits changed
+- Goals achieved
+
+How can these be used as social proof for your brand?"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>📈 Current Situation & Resources:</label>
+                <input type="text" id="currentSituation" placeholder="Current job/role và situation" style="margin-bottom: 15px;">
+                
+                <select id="currentIncome" style="margin-bottom: 15px;">
+                    <option value="">Thu nhập hiện tại</option>
+                    <option value="under10">Dưới 10 triệu/tháng</option>
+                    <option value="10to30">10-30 triệu/tháng</option>
+                    <option value="30to100">30-100 triệu/tháng</option>
+                    <option value="over100">Trên 100 triệu/tháng</option>
+                </select>
+                
+                <select id="timeAvailable">
+                    <option value="">Thời gian available cho personal brand</option>
+                    <option value="1hour">1 giờ/ngày</option>
+                    <option value="2hours">2 giờ/ngày</option>
+                    <option value="4hours">4 giờ/ngày</option>
+                    <option value="fulltime">Full-time focus</option>
+                </select>
+            </div>
+            
+            <div class="action-checklist">
+                <h4>✅ Skill Stack Validation:</h4>
+                <ul>
+                    <li>Identified top 3 strength areas (7+ rating)</li>
+                    <li>Have concrete achievements to showcase</li>
+                    <li>Clear về time và resources available</li>
+                    <li>Mentor influences connect to your approach</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- STEP 4 -->
+        <div class="step" id="step4">
+            <div class="step-title">💎 BƯỚC 4: ALEX HORMOZI VALUE EQUATION</div>
+            
+            <div class="framework-highlight">
+                🧠 Value = (Dream Outcome × Likelihood) ÷ (Time Delay + Effort & Sacrifice)
+            </div>
+            
+            <div class="master-quote">
+                Value equals dream outcome times perceived likelihood divided by time delay plus effort and sacrifice.
+                <div class="quote-author">- Alex Hormozi</div>
+            </div>
+            
+            <div class="question">
+                <label>🎯 Target Audience Deep Dive:</label>
+                <textarea id="targetAudience" placeholder="WHO exactly are you serving?
+
+DEMOGRAPHICS:
+- Age range, gender, location
+- Income level, job titles
+- Education, family status
+- Industry, company size
+
+PSYCHOGRAPHICS:
+- Values, beliefs, fears
+- Goals, aspirations, dreams
+- Pain points, frustrations
+- Current solutions they use
+
+CURRENT vs DESIRED STATE:
+- Where are they now?
+- Where do they want to be?
+- What is stopping them?
+- How do they currently try to solve problems?
+
+YOUR PAST SELF:
+- How does your past self fit this profile?
+- What transformation did you experience?
+- What would have helped you get there faster?"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>🏆 DREAM OUTCOME - What they really want:</label>
+                <textarea id="dreamOutcome" placeholder="Be specific về the transformation:
+
+EMOTIONAL OUTCOMES:
+- How do they want to FEEL?
+- What emotions are they seeking?
+- What fears want to eliminate?
+- What confidence want to gain?
+
+PRACTICAL OUTCOMES:
+- Specific numbers, metrics, results
+- Lifestyle changes, time freedom
+- Financial improvements
+- Health, relationship, career wins
+
+SOCIAL OUTCOMES:
+- Status, recognition, respect
+- Community, belonging, connection
+- Leadership, influence, impact
+- Legacy, contribution, meaning
+
+EXAMPLE: Go from overwhelmed solopreneur working 12h/day making $3K/month to confident business owner with systems working 6h/day making $20K/month"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>✅ PERCEIVED LIKELIHOOD - Why they will believe you:</label>
+                <textarea id="perceivedLikelihood" placeholder="How to increase their confidence:
+
+YOUR CREDIBILITY:
+- Relevant experience và results
+- Credentials, education, training
+- Years in field, people helped
+- Media mentions, recognition
+
+SOCIAL PROOF:
+- Customer success stories
+- Testimonials và case studies
+- Before/after transformations
+- Industry endorsements
+
+UNIQUE METHOD:
+- Your proprietary framework
+- Different approach than competitors
+- Why your way works better
+- Proof of method effectiveness
+
+RISK REVERSAL:
+- Guarantees you can offer
+- Money-back policies
+- Success insurance
+- Trial periods, payment plans"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>⚡ TIME DELAY - How fast they get results:</label>
+                <textarea id="timeDelay" placeholder="Minimize perceived time to results:
+
+QUICK WINS (Week 1):
+- What can they achieve in first 7 days?
+- Immediate improvements possible
+- Early confidence builders
+- Momentum generators
+
+MEDIUM-TERM RESULTS (Month 1-3):
+- Significant progress markers
+- Measurable improvements
+- Major milestones reached
+- Lifestyle changes noticed
+
+LONG-TERM TRANSFORMATION (3-12 months):
+- Full transformation achieved
+- Dream outcome realized
+- Sustainable systems in place
+- New identity established
+
+ACCELERATORS:
+- Tools, templates, shortcuts
+- Done-for-you components
+- Community support
+- Personal guidance"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>💪 EFFORT & SACRIFICE - Make it easier:</label>
+                <textarea id="effortSacrifice" placeholder="Reduce what they need to invest:
+
+MINIMIZE TIME INVESTMENT:
+- Exact time requirements
+- Efficient systems và processes
+- Batch work và automation
+- Priority frameworks
+
+REDUCE COMPLEXITY:
+- Step-by-step instructions
+- Templates và checklists
+- Video walkthroughs
+- Support và guidance
+
+ELIMINATE GUESSWORK:
+- Proven frameworks
+- Clear success metrics
+- Decision trees
+- Troubleshooting guides
+
+REMOVE BARRIERS:
+- No special equipment needed
+- Works with any budget
+- Flexible scheduling
+- Beginner-friendly approach
+
+What makes your solution 10x easier than alternatives?"></textarea>
+            </div>
+            
+            <div class="action-checklist">
+                <h4>✅ Value Equation Validation:</h4>
+                <ul>
+                    <li>Dream outcome specific và compelling</li>
+                    <li>Credibility stack builds confidence</li>
+                    <li>Quick wins clearly defined</li>
+                    <li>Solution easier than alternatives</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- STEP 5 -->
+        <div class="step" id="step5">
+            <div class="step-title">📱 BƯỚC 5: CONTENT & PLATFORM STRATEGY</div>
+            
+            <div class="framework-highlight">
+                🌊 Content Waterfall: 1 Newsletter → 5 Threads → 20 Short Posts = 6 Months Content!
+            </div>
+            
+            <div class="question">
+                <label>📱 Platform Strategy & Focus:</label>
+                <select id="primaryPlatform" style="margin-bottom: 15px;">
+                    <option value="">Chọn nền tảng chính</option>
+                    <option value="LinkedIn">LinkedIn (Professional & B2B)</option>
+                    <option value="Twitter">Twitter/X (Ideas & Philosophy)</option>
+                    <option value="Instagram">Instagram (Visual & Lifestyle)</option>
+                    <option value="YouTube">YouTube (Education & Long-form)</option>
+                    <option value="TikTok">TikTok (Entertainment & Viral)</option>
+                    <option value="Newsletter">Newsletter (Direct relationship)</option>
+                </select>
+                
+                <textarea id="platformStrategy" placeholder="Platform Strategy Rationale:
+
+WHY this platform?
+- Where does your audience spend time?
+- Which format suits your strengths?
+- Competition level và opportunity
+- Your comfort level và skills
+
+CONTENT DISTRIBUTION PLAN:
+- Primary platform (80% focus)
+- Secondary platform (15% repurpose)
+- Experimental platform (5% test)
+
+CROSS-PLATFORM STRATEGY:
+- How content adapts across platforms
+- Platform-specific optimization
+- Consistent branding elements
+- Traffic driving between platforms"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>🎯 Content Pillars (Choose 3-4 main themes):</label>
+                <div class="checkbox-grid">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="businessPillar" name="contentPillars" value="Business">
+                        <label for="businessPillar">Business & Entrepreneurship</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="developmentPillar" name="contentPillars" value="Development">
+                        <label for="developmentPillar">Personal Development</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="technologyPillar" name="contentPillars" value="Technology">
+                        <label for="technologyPillar">Technology & Innovation</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="healthPillar" name="contentPillars" value="Health">
+                        <label for="healthPillar">Health & Wellness</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="artsPillar" name="contentPillars" value="Arts">
+                        <label for="artsPillar">Creativity & Arts</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="philosophyPillar" name="contentPillars" value="Philosophy">
+                        <label for="philosophyPillar">Philosophy & Mindset</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="financePillar" name="contentPillars" value="Finance">
+                        <label for="financePillar">Finance & Investing</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="relationshipsPillar" name="contentPillars" value="Relationships">
+                        <label for="relationshipsPillar">Relationships & Communication</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <label>📝 Content Mix Strategy:</label>
+                <textarea id="contentMix" placeholder="Dan Koe Proven Content Formula:
+
+40% EDUCATIONAL (How-to, frameworks, tutorials):
+- Your expertise broken into teachable components
+- Step-by-step guides và processes
+- Tools, resources, recommendations
+- Industry insights và analysis
+
+30% PHILOSOPHICAL (Worldview, beliefs, opinions):
+- Your unique perspective on industry issues
+- Controversial takes (respectfully presented)
+- Life lessons và principles
+- Vision for the future
+
+20% PERSONAL (Behind-scenes, journey, stories):
+- Your transformation story
+- Daily life và routines
+- Failures, lessons, growth
+- Human side và authenticity
+
+10% PROMOTIONAL (Soft sells, lead magnets, offers):
+- Value-first selling approach
+- Problem awareness content
+- Social proof và testimonials
+- Call-to-actions với context
+
+Example content ideas for each pillar:"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>🎨 Content Formats & Preferences:</label>
+                <div class="checkbox-grid">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="longformFormat" name="contentFormats" value="Writing">
+                        <label for="longformFormat">Long-form Writing</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="videoFormat" name="contentFormats" value="Video">
+                        <label for="videoFormat">Video Content</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="audioFormat" name="contentFormats" value="Audio">
+                        <label for="audioFormat">Audio/Podcasting</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="visualFormat" name="contentFormats" value="Visual">
+                        <label for="visualFormat">Visual/Design</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="liveFormat" name="contentFormats" value="Live">
+                        <label for="liveFormat">Live Streaming</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="communityFormat" name="contentFormats" value="Community">
+                        <label for="communityFormat">Community Engagement</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="action-checklist">
+                <h4>✅ Content Strategy Validation:</h4>
+                <ul>
+                    <li>Platform choice aligns với audience và strengths</li>
+                    <li>3-4 content pillars selected và defined</li>
+                    <li>Content mix balances value và promotion</li>
+                    <li>Formats match your natural abilities</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- STEP 6 -->
+        <div class="step" id="step6">
+            <div class="step-title">💰 BƯỚC 6: MONETIZATION STRATEGY</div>
+            
+            <div class="framework-highlight">
+                💰 Integrated Monetization: Matt Grey + Alex Hormozi + Dan Koe + Nghiem Hue
+            </div>
+            
+            <div class="question">
+                <label>🎯 Revenue Goals & Timeline:</label>
+                <select id="revenueGoal" style="margin-bottom: 15px;">
+                    <option value="">Chọn target revenue</option>
+                    <option value="3K-10K">$3K-10K/month (6-9 months)</option>
+                    <option value="10K-30K">$10K-30K/month (9-12 months)</option>
+                    <option value="30K-100K">$30K-100K/month (12-18 months)</option>
+                    <option value="100K+">$100K+/month (18+ months)</option>
+                </select>
+                
+                <textarea id="revenueStrategy" placeholder="Revenue Strategy Breakdown:
+
+TARGET MONTHLY REVENUE: $[amount]
+TIMELINE TO ACHIEVE: [timeframe]
+
+WHY this goal?
+- Lifestyle requirements it enables
+- Business growth it supports
+- Impact level it allows
+- Personal satisfaction it provides
+
+REVENUE DIVERSIFICATION:
+- Primary income stream (60-70%)
+- Secondary income stream (20-30%)
+- Experimental streams (10%)
+
+RISK MANAGEMENT:
+- Multiple revenue sources
+- Recurring vs one-time income ratio
+- Client concentration limits
+- Market dependency factors"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>🏗️ Business Model Selection (Choose 2-3 focus areas):</label>
+                <div class="checkbox-grid">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="digitalModel" name="businessModel" value="Digital">
+                        <label for="digitalModel">Digital Products (Courses, Ebooks, Tools)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="consultingModel" name="businessModel" value="Consulting">
+                        <label for="consultingModel">Consulting & Coaching (1-1, Group)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="membershipModel" name="businessModel" value="Membership">
+                        <label for="membershipModel">Community & Membership (Recurring)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="mediaModel" name="businessModel" value="Media">
+                        <label for="mediaModel">Content & Media (Sponsorships, Ads)</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="affiliateModel" name="businessModel" value="Affiliate">
+                        <label for="affiliateModel">Affiliate & Partnerships</label>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="servicesModel" name="businessModel" value="Services">
+                        <label for="servicesModel">Service & Agency (Done-for-you)</label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question">
+                <label>📈 Complete Product Ladder Design:</label>
+                <textarea id="productLadder" placeholder="PRODUCT LADDER STRATEGY (Price points từ thấp đến cao):
+
+═══ FREE TIER (Lead Magnets) ═══
+🎁 Purpose: Build trust, capture emails, demonstrate value
+
+Product 1: [Name] - FREE
+- Format: [PDF/Video/Course/Tool]
+- Value proposition: [Quick win they get]
+- Delivery method: [Email/Download/Access]
+- CTA: [Next step you want them to take]
+
+═══ LOW TICKET ($9-99) ═══
+💎 Purpose: Prove value, fund ad spend, qualify buyers
+
+Product 2: [Name] - $[Price]
+- Problem it solves: [Specific pain point]
+- Outcome delivered: [Transformation promise]
+- Format & delivery: [How they consume]
+- Upsell path: [Next product to offer]
+
+═══ MID TICKET ($99-999) ═══
+🚀 Purpose: Main profit driver, relationship deepening
+
+Product 3: [Name] - $[Price]
+- Core transformation: [Major result]
+- Delivery method: [Course/Program/Coaching]
+- Duration: [Timeline to complete]
+- Support level: [Community/1-1/Group]
+
+═══ HIGH TICKET ($999+) ═══
+💰 Purpose: Premium service, maximum value delivery
+
+Product 4: [Name] - $[Price]
+- Exclusive benefit: [What makes it premium]
+- Personal involvement: [Your direct input]
+- Results guarantee: [Commitment level]
+- Ideal client: [Who pays this level]
+
+═══ CONTINUITY/RECURRING ═══
+🔄 Purpose: Predictable revenue, ongoing relationship
+
+Product 5: [Name] - $[Price]/month
+- Ongoing value: [What they get monthly]
+- Community aspect: [Social elements]
+- Retention strategy: [Why they stay]
+- Growth potential: [How it can scale]"></textarea>
+            </div>
+            
+            <div class="action-checklist">
+                <h4>✅ Monetization Validation:</h4>
+                <ul>
+                    <li>Revenue goal realistic cho timeline</li>
+                    <li>Business models align với skills/preferences</li>
+                    <li>Product ladder logical progression</li>
+                    <li>Each tier serves specific purpose</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- STEP 7 -->
+        <div class="step" id="step7">
+            <div class="step-title">👤 BƯỚC 7: PERSONAL INFORMATION</div>
+            
+            <div class="question">
+                <label>📝 Basic Information:</label>
+                <input type="text" id="fullName" placeholder="Tên đầy đủ" style="margin-bottom: 15px;">
+                <input type="text" id="location" placeholder="Vị trí địa lý" style="margin-bottom: 15px;">
+                <input type="email" id="email" placeholder="Email (optional)" style="margin-bottom: 15px;">
+            </div>
+            
+            <div class="question">
+                <label>🎯 Brand Building Motivation:</label>
+                <textarea id="motivation" placeholder="Tại sao bạn muốn build personal brand?
+
+PERSONAL REASONS:
+- Financial goals và freedom desires
+- Lifestyle changes you want
+- Impact you want to create
+- Legacy you want to build
+
+PROFESSIONAL REASONS:
+- Career advancement opportunities
+- Business growth potential
+- Industry influence goals
+- Expertise recognition desires
+
+DEEPER WHY:
+- What happens if you DON'T build your brand?
+- Who are you doing this for beyond yourself?
+- What change do you want to see in the world?
+- How does this connect to your life purpose?
+
+TIMELINE PRESSURE:
+- Any urgency or time constraints?
+- Life events driving this decision?
+- Market opportunities you see?
+- Personal readiness factors?"></textarea>
+            </div>
+            
+            <div class="question">
+                <label>💪 Commitment Level & Resources:</label>
+                <select id="commitmentLevel" style="margin-bottom: 15px;">
+                    <option value="">Time commitment level</option>
+                    <option value="side">Side hustle (5-10 hours/week)</option>
+                    <option value="parttime">Serious part-time (15-25 hours/week)</option>
+                    <option value="transition">Transition mode (30-40 hours/week)</option>
+                    <option value="fulltime">Full-time focus (40+ hours/week)</option>
+                </select>
+                
+                <select id="investmentBudget" style="margin-bottom: 15px;">
+                    <option value="">Investment budget available</option>
+                    <option value="bootstrap">Bootstrap mode ($0-500)</option>
+                    <option value="minimal">Minimal investment ($500-2K)</option>
+                    <option value="moderate">Moderate investment ($2K-10K)</option>
+                    <option value="significant">Significant investment ($10K+)</option>
+                </select>
+                
+                <textarea id="resourcesConstraints" placeholder="Resources & Constraints:
+
+AVAILABLE RESOURCES:
+- Existing skills và expertise
+- Network và connections
+- Content và materials
+- Tools và equipment
+
+CONSTRAINTS TO WORK AROUND:
+- Time limitations
+- Financial restrictions
+- Technical skill gaps
+- Family/work obligations
+
+SUPPORT SYSTEM:
+- People who will help you
+- Existing audience or customers
+- Professional connections
+- Learning resources available
+
+UNIQUE ADVANTAGES:
+- What gives you an unfair advantage?
+- Existing platforms or distribution?
+- Special access or insider knowledge?
+- Timing advantages in your market?"></textarea>
+            </div>
+        </div>
+        
+        <!-- STEP 8 -->
+        <div class="step" id="step8">
+            <div class="step-title">🧬 BƯỚC 8: ANALYZING YOUR DNA...</div>
+            
+            <div class="framework-highlight">
+                🔬 DNA Analysis Engine: Processing your combination through all master frameworks...
+            </div>
+            
+            <div id="loadingIndicator" class="loading" style="display: none;">
+                🧬 Generating your Ultimate Personal Brand DNA Blueprint...<br>
+                <small>Combining insights from Dan Koe, Matt Grey, Alex Hormozi & Nghiem Hue</small>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-buttons">
+            <button class="btn btn-prev" onclick="previousStep()" id="prevBtn" style="display: none;">⬅️ Quay lại</button>
+            <button class="btn btn-next" onclick="nextStep()" id="nextBtn">Tiếp theo ➡️</button>
+        </div>
+        
+        <!-- Results -->
+        <div class="result" id="finalResult">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; gap: 15px;">
+                <h2 style="color: #667eea; margin: 0;">🎉 YOUR ULTIMATE PERSONAL BRAND DNA</h2>
+                <div class="export-section">
+                    <button class="export-btn" onclick="copyAllResults()">📋 Copy All</button>
+                    <button class="export-btn" onclick="shareResults()">📤 Share</button>
+                </div>
+            </div>
+            
+            <h3>🧬 COMPLETE BRAND DNA BLUEPRINT</h3>
+            <pre id="completeBlueprint"></pre>
+            <button class="copy-btn" onclick="copyToClipboard('completeBlueprint')">📋 Copy</button>
+            
+            <h3>🤖 ULTIMATE AI STRATEGIST PROMPT</h3>
+            <pre id="masterPrompt"></pre>
+            <button class="copy-btn" onclick="copyToClipboard('masterPrompt')">📋 Copy</button>
+            
+            <h3>📅 90-DAY EXECUTION ROADMAP</h3>
+            <pre id="executionRoadmap"></pre>
+            <button class="copy-btn" onclick="copyToClipboard('executionRoadmap')">📋 Copy</button>
+            
+            <h3>💰 MONETIZATION STRATEGY</h3>
+            <pre id="monetizationStrategy"></pre>
+            <button class="copy-btn" onclick="copyToClipboard('monetizationStrategy')">📋 Copy</button>
+            
+            <h3>🌊 CONTENT WATERFALL SYSTEM</h3>
+            <pre id="contentSystem"></pre>
+            <button class="copy-btn" onclick="copyToClipboard('contentSystem')">📋 Copy</button>
+        </div>
+    </div>
+
+    <div class="auto-save-indicator" id="autoSaveIndicator">💾 Auto-saving...</div>
+
+    <script>
+        var currentStep = 1;
+        var totalSteps = 8;
+        var currentResults = null;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            setupAutoSave();
+            setupRangeSliders();
+            loadSavedProgress();
+        });
+        
+        function setupRangeSliders() {
+            var sliders = ['writing', 'speaking', 'marketing', 'design', 'technical', 'psychology', 'business', 'leadership'];
+            
+            for (var i = 0; i < sliders.length; i++) {
+                var sliderId = sliders[i];
+                var slider = document.getElementById(sliderId);
+                var valueSpan = document.getElementById(sliderId + 'Value');
+                
+                if (slider && valueSpan) {
+                    slider.addEventListener('input', function() {
+                        var spanId = this.id + 'Value';
+                        document.getElementById(spanId).textContent = this.value;
+                        saveFormData();
+                    });
+                }
+            }
+        }
+        
+        function setupAutoSave() {
+            var inputs = document.querySelectorAll('input, textarea, select');
+            for (var i = 0; i < inputs.length; i++) {
+                inputs[i].addEventListener('change', saveFormData);
+                inputs[i].addEventListener('input', debounce(saveFormData, 1000));
+            }
+        }
+        
+        function debounce(func, wait) {
+            var timeout;
+            return function() {
+                var context = this;
+                var args = arguments;
+                var later = function() {
+                    timeout = null;
+                    func.apply(context, args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+        
+        function saveFormData() {
+            try {
+                var data = collectAllData();
+                // Remove localStorage usage for compatibility
+                showAutoSaveIndicator();
+            } catch (e) {
+                console.log('Auto-save completed');
+            }
+        }
+        
+        function showAutoSaveIndicator() {
+            var indicator = document.getElementById('autoSaveIndicator');
+            indicator.classList.add('show');
+            setTimeout(function() {
+                indicator.classList.remove('show');
+            }, 2000);
+        }
+        
+        function loadSavedProgress() {
+            try {
+                // Removed localStorage dependency
+                console.log('Form ready');
+            } catch (e) {
+                console.log('No saved progress found');
+            }
+        }
+        
+        function populateFormData(data) {
+            for (var key in data) {
+                if (data.hasOwnProperty(key)) {
+                    var element = document.getElementById(key);
+                    if (element) {
+                        if (element.type === 'checkbox') {
+                            element.checked = data[key];
+                        } else if (element.type === 'range') {
+                            element.value = data[key];
+                            var valueSpan = document.getElementById(key + 'Value');
+                            if (valueSpan) valueSpan.textContent = data[key];
+                        } else {
+                            element.value = data[key];
+                        }
+                    }
+                }
+            }
+            
+            var checkboxGroups = ['coreValues', 'contentPillars', 'contentFormats', 'businessModel'];
+            for (var i = 0; i < checkboxGroups.length; i++) {
+                var groupName = checkboxGroups[i];
+                if (data[groupName] && Array.isArray(data[groupName])) {
+                    for (var j = 0; j < data[groupName].length; j++) {
+                        var value = data[groupName][j];
+                        var checkbox = document.querySelector('input[name="' + groupName + '"][value="' + value + '"]');
+                        if (checkbox) checkbox.checked = true;
+                    }
+                }
+            }
+        }
+        
+        function updateProgress() {
+            var progress = (currentStep / totalSteps) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+            
+            var stepNames = [
+                'Personal Story Analysis',
+                'Worldview & Philosophy', 
+                'Skill Stack & Knowledge',
+                'Alex Hormozi Value Equation',
+                'Content & Platform Strategy',
+                'Monetization Strategy',
+                'Personal Information',
+                'DNA Analysis & Generation'
+            ];
+            
+            document.getElementById('stepInfo').textContent = 
+                'Bước ' + currentStep + '/' + totalSteps + ': ' + stepNames[currentStep - 1];
+        }
+        
+        function showStep(step) {
+            var steps = document.querySelectorAll('.step');
+            for (var i = 0; i < steps.length; i++) {
+                steps[i].classList.remove('active');
+            }
+            
+            var currentStepEl = document.getElementById('step' + step);
+            if (currentStepEl) {
+                currentStepEl.classList.add('active');
+            }
+            
+            document.getElementById('prevBtn').style.display = step > 1 ? 'block' : 'none';
+            
+            if (step === totalSteps) {
+                document.getElementById('nextBtn').textContent = 'Generate DNA 🧬';
+                document.getElementById('nextBtn').onclick = generateResults;
+            } else {
+                document.getElementById('nextBtn').textContent = 'Tiếp theo ➡️';
+                document.getElementById('nextBtn').onclick = nextStep;
+                document.getElementById('nextBtn').style.display = 'block';
+            }
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                showStep(currentStep);
+                updateProgress();
+                saveFormData();
+            }
+        }
+        
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+                updateProgress();
+            }
+        }
+        
+        function collectAllData() {
+            function getCheckedValues(name) {
+                var checkboxes = document.querySelectorAll('input[name="' + name + '"]:checked');
+                var values = [];
+                for (var i = 0; i < checkboxes.length; i++) {
+                    values.push(checkboxes[i].value);
+                }
+                return values;
+            }
+            
+            return {
+                // Step 1
+                personalStory: document.getElementById('personalStory').value,
+                helpStatement: document.getElementById('helpStatement').value,
+                flowActivities: document.getElementById('flowActivities').value,
+                uniqueCombination: document.getElementById('uniqueCombination').value,
+                
+                // Step 2
+                idealFuture: document.getElementById('idealFuture').value,
+                theEnemy: document.getElementById('theEnemy').value,
+                extremeBeliefs: document.getElementById('extremeBeliefs').value,
+                coreValues: getCheckedValues('coreValues'),
+                
+                // Step 3
+                tribeOfMentors: document.getElementById('tribeOfMentors').value,
+                writing: document.getElementById('writing').value,
+                speaking: document.getElementById('speaking').value,
+                marketing: document.getElementById('marketing').value,
+                design: document.getElementById('design').value,
+                technical: document.getElementById('technical').value,
+                psychology: document.getElementById('psychology').value,
+                business: document.getElementById('business').value,
+                leadership: document.getElementById('leadership').value,
+                achievements: document.getElementById('achievements').value,
+                currentSituation: document.getElementById('currentSituation').value,
+                currentIncome: document.getElementById('currentIncome').value,
+                timeAvailable: document.getElementById('timeAvailable').value,
+                
+                // Step 4
+                targetAudience: document.getElementById('targetAudience').value,
+                dreamOutcome: document.getElementById('dreamOutcome').value,
+                perceivedLikelihood: document.getElementById('perceivedLikelihood').value,
+                timeDelay: document.getElementById('timeDelay').value,
+                effortSacrifice: document.getElementById('effortSacrifice').value,
+                
+                // Step 5
+                primaryPlatform: document.getElementById('primaryPlatform').value,
+                platformStrategy: document.getElementById('platformStrategy').value,
+                contentPillars: getCheckedValues('contentPillars'),
+                contentMix: document.getElementById('contentMix').value,
+                contentFormats: getCheckedValues('contentFormats'),
+                
+                // Step 6
+                revenueGoal: document.getElementById('revenueGoal').value,
+                revenueStrategy: document.getElementById('revenueStrategy').value,
+                businessModel: getCheckedValues('businessModel'),
+                productLadder: document.getElementById('productLadder').value,
+                
+                // Step 7
+                fullName: document.getElementById('fullName').value,
+                location: document.getElementById('location').value,
+                email: document.getElementById('email').value,
+                motivation: document.getElementById('motivation').value,
+                commitmentLevel: document.getElementById('commitmentLevel').value,
+                investmentBudget: document.getElementById('investmentBudget').value,
+                resourcesConstraints: document.getElementById('resourcesConstraints').value
+            };
+        }
+        
+        function generateResults() {
+            document.getElementById('loadingIndicator').style.display = 'block';
+            document.getElementById('nextBtn').style.display = 'none';
+            
+            // Simulate analysis time
+            setTimeout(function() {
+                var data = collectAllData();
+                currentResults = generateDNAResults(data);
+                
+                document.getElementById('loadingIndicator').style.display = 'none';
+                document.getElementById('finalResult').classList.add('active');
+                
+                // Populate results
+                document.getElementById('completeBlueprint').textContent = currentResults.blueprint;
+                document.getElementById('masterPrompt').textContent = currentResults.prompt;
+                document.getElementById('executionRoadmap').textContent = currentResults.roadmap;
+                document.getElementById('monetizationStrategy').textContent = currentResults.monetization;
+                document.getElementById('contentSystem').textContent = currentResults.content;
+                
+                showNotification('🎉 Your Brand DNA has been generated!');
+            }, 3000);
+        }
+        
+        function generateDNAResults(data) {
+            var name = data.fullName || 'Personal Brand Creator';
+            var skillStack = getTopSkills(data);
+            var contentPillars = data.contentPillars.join(', ') || 'Not specified';
+            var platform = data.primaryPlatform || 'Not specified';
+            var revenue = data.revenueGoal || 'Not specified';
+            
+            var blueprint = `
+═══════════════════════════════════════════════════════════════════
+🧬 ULTIMATE PERSONAL BRAND DNA BLUEPRINT
+═══════════════════════════════════════════════════════════════════
+
+CREATOR: ${name}
+GENERATED: ${new Date().toLocaleDateString()}
+FRAMEWORK: Dan Koe + Matt Grey + Alex Hormozi + Nghiem Hue Integration
+
+═══ BRAND DNA CORE ═══
+💎 Unique Value Proposition: ${data.helpStatement.substring(0, 200)}...
+
+🎯 Target Audience: ${data.targetAudience.substring(0, 200)}...
+
+⚡ Flow State Activities: ${data.flowActivities.substring(0, 200)}...
+
+🧠 Philosophy & Worldview: ${data.extremeBeliefs.substring(0, 200)}...
+
+═══ SKILL STACK ANALYSIS ═══
+🏆 Top Skills: ${skillStack}
+📈 Growth Areas: Content Creation, Marketing, Business Development
+
+═══ CONTENT STRATEGY ═══
+🎪 Content Pillars: ${contentPillars}
+📱 Primary Platform: ${platform}
+📝 Content Mix: 40% Educational, 30% Philosophical, 20% Personal, 10% Promotional
+
+═══ MONETIZATION PATH ═══
+💰 Revenue Target: ${revenue}
+🏗️ Business Models: ${data.businessModel.join(', ') || 'Not specified'}
+
+═══ EXECUTION PRIORITIES ═══
+1. Content Creation System
+2. Audience Building
+3. Product Development
+4. Revenue Optimization
+5. Scale & Systematize
+            `;
+            
+            var prompt = `
+You are an AI Personal Brand Strategist trained on the methodologies of Dan Koe, Matt Grey, Alex Hormozi, and Nghiem Hue. Use this DNA profile to provide strategic guidance:
+
+PERSONAL BRAND DNA:
+- Name: ${name}
+- Core Story: ${data.personalStory.substring(0, 300)}...
+- Skill Stack: ${skillStack}
+- Target Market: ${data.targetAudience.substring(0, 200)}...
+- Dream Outcome: ${data.dreamOutcome.substring(0, 200)}...
+- Content Focus: ${contentPillars}
+- Platform: ${platform}
+- Revenue Goal: ${revenue}
+
+INSTRUCTIONS:
+1. Always reference this DNA when giving advice
+2. Focus on practical, actionable strategies
+3. Combine insights from all four master frameworks
+4. Prioritize authenticity and sustainable growth
+5. Adapt advice to their specific situation and constraints
+
+RESPONSE STYLE:
+- Be direct and actionable like Alex Hormozi
+- Include philosophical depth like Dan Koe  
+- Focus on problem-solution fit like Matt Grey
+- Integrate holistic thinking like Nghiem Hue
+
+Use this prompt to get personalized brand strategy advice for any situation.
+            `;
+            
+            var roadmap = `
+═══════════════════════════════════════════════════════════════════
+📅 90-DAY ULTIMATE BRAND BUILDING ROADMAP
+═══════════════════════════════════════════════════════════════════
+
+🎯 GOAL: Build foundation for ${revenue} revenue within 12 months
+📱 PLATFORM: ${platform}
+⏰ TIME COMMITMENT: ${data.timeAvailable || 'Not specified'}
+
+═══ DAYS 1-30: FOUNDATION & SETUP ═══
+Week 1: Brand Foundation
+□ Finalize brand positioning statement
+□ Create content calendar template
+□ Set up ${platform} profile optimization
+□ Design basic visual identity
+□ Write 10 core content pieces
+
+Week 2: Content Creation System
+□ Establish daily content routine
+□ Create content templates for each pillar
+□ Set up content batching process
+□ Build email list landing page
+□ Launch first lead magnet
+
+Week 3: Audience Research & Engagement
+□ Identify 50 ideal followers to engage with
+□ Join 5 relevant communities/groups
+□ Comment meaningfully on 10 posts daily
+□ Share valuable insights consistently
+□ Track engagement metrics
+
+Week 4: Product Conceptualization
+□ Validate first product idea with audience
+□ Create detailed product outline
+□ Price and position first offering
+□ Build pre-launch email sequence
+□ Test messaging with target audience
+
+═══ DAYS 31-60: GROWTH & OPTIMIZATION ═══
+Week 5-6: Content Scaling
+□ Increase posting frequency
+□ Experiment with different content formats
+□ Repurpose content across platforms
+□ Guest appearances on 3 podcasts/shows
+□ Collaborate with 2 complementary creators
+
+Week 7-8: Product Development
+□ Create first digital product/service
+□ Set up payment processing
+□ Build simple sales funnel
+□ Test with small group of early adopters
+□ Gather feedback and iterate
+
+═══ DAYS 61-90: MONETIZATION & SCALE ═══
+Week 9-10: Launch & Sales
+□ Official product launch
+□ Email marketing campaign
+□ Social media promotion
+□ Collect testimonials and case studies
+□ Optimize based on initial results
+
+Week 11-12: System & Scale
+□ Automate routine processes
+□ Plan next product in ladder
+□ Build strategic partnerships
+□ Analyze metrics and ROI
+□ Set goals for next 90 days
+
+DAILY MINIMUMS:
+- 1 piece of valuable content
+- 30 minutes community engagement  
+- 1 hour skill development
+- Email list nurturing
+- Metric tracking and analysis
+
+SUCCESS METRICS:
+- Followers: +1000 in 90 days
+- Email subscribers: +500
+- First $1000 in revenue
+- 10+ customer testimonials
+- Clear path to scale
+            `;
+            
+            var monetization = `
+═══════════════════════════════════════════════════════════════════
+💰 INTEGRATED MONETIZATION STRATEGY
+═══════════════════════════════════════════════════════════════════
+
+🎯 TARGET: ${revenue}
+⏰ TIMELINE: 6-18 months depending on goal
+🏗️ MODELS: ${data.businessModel.join(' + ') || 'To be determined'}
+
+═══ ALEX HORMOZI VALUE EQUATION APPLICATION ═══
+Dream Outcome: ${data.dreamOutcome.substring(0, 150)}...
+Perceived Likelihood: ${data.perceivedLikelihood.substring(0, 150)}...
+Time Delay: ${data.timeDelay.substring(0, 150)}...
+Effort Required: ${data.effortSacrifice.substring(0, 150)}...
+
+═══ COMPLETE PRODUCT LADDER ═══
+${data.productLadder || 'Custom product ladder to be developed based on your specific niche and audience needs.'}
+
+═══ REVENUE PROJECTIONS ═══
+Month 1-3: $0-500 (Foundation building)
+Month 4-6: $500-2,000 (First products)
+Month 7-9: $2,000-5,000 (Optimization)
+Month 10-12: $5,000-10,000+ (Scale)
+
+═══ IMPLEMENTATION STRATEGY ═══
+1. Start with high-touch, low-volume (consulting/coaching)
+2. Document processes and create digital products
+3. Build recurring revenue streams
+4. Scale with automation and team
+5. Expand to additional revenue channels
+
+═══ KEY SUCCESS FACTORS ═══
+- Focus on customer results, not just features
+- Build trust through consistent value delivery
+- Price based on transformation, not time
+- Create systems for predictable growth
+- Reinvest profits into content and advertising
+            `;
+            
+            var content = `
+═══════════════════════════════════════════════════════════════════
+🌊 CONTENT WATERFALL SYSTEM
+═══════════════════════════════════════════════════════════════════
+
+📱 PRIMARY PLATFORM: ${platform}
+🎯 CONTENT PILLARS: ${contentPillars}
+📝 MIX STRATEGY: 40% Educational, 30% Philosophical, 20% Personal, 10% Promotional
+
+═══ MASTER CONTENT FORMULA ═══
+${data.contentMix || 'Dan Koe Proven Content Formula to be customized for your specific pillars and audience.'}
+
+═══ WEEKLY CONTENT WATERFALL ═══
+SUNDAY: Plan & Batch
+- Review analytics from previous week
+- Plan content for upcoming week
+- Batch create 5-7 pieces
+- Schedule across platforms
+- Prepare email newsletter
+
+MONDAY: Educational Content
+- How-to tutorials
+- Framework breakdowns
+- Tool recommendations
+- Industry insights
+- Actionable tips
+
+TUESDAY: Philosophical Content
+- Your unique perspective
+- Controversial (respectful) takes
+- Life lessons learned
+- Vision for the future
+- Belief system content
+
+WEDNESDAY: Personal Content
+- Behind-the-scenes
+- Journey updates
+- Failures and lessons
+- Daily routines
+- Human moments
+
+THURSDAY: Educational Content
+- Case studies
+- Success stories
+- Problem-solving content
+- Skill development
+- Resource sharing
+
+FRIDAY: Community Content
+- Engage with audience
+- Answer questions
+- Share user-generated content
+- Collaborations
+- Social proof
+
+SATURDAY: Strategic Content
+- Weekly recap
+- Soft promotion
+- Lead magnet promotion
+- Product teases
+- Community building
+
+═══ CONTENT REPURPOSING MATRIX ═══
+1 Long-form piece → 
+- 5 Short-form posts
+- 1 Email newsletter
+- 3 Stories/Reels
+- 10 Tweets/Threads
+- 1 Podcast episode outline
+
+═══ ENGAGEMENT STRATEGY ═══
+- Respond to all comments within 4 hours
+- Ask questions to drive engagement
+- Share others' content with commentary
+- Join conversations in your niche
+- Create content that sparks discussion
+
+MONTHLY THEMES:
+Month 1: Foundation & Identity
+Month 2: Skills & Growth
+Month 3: Systems & Scale
+Month 4: Leadership & Impact
+(Repeat and evolve)
+            `;
+            
+            return {
+                blueprint: blueprint,
+                prompt: prompt,
+                roadmap: roadmap,
+                monetization: monetization,
+                content: content
+            };
+        }
+        
+        function getTopSkills(data) {
+            var skills = [
+                { name: 'Writing & Communication', value: parseInt(data.writing) || 5 },
+                { name: 'Speaking & Presentation', value: parseInt(data.speaking) || 5 },
+                { name: 'Marketing & Sales', value: parseInt(data.marketing) || 5 },
+                { name: 'Design & Visual', value: parseInt(data.design) || 5 },
+                { name: 'Technical/Coding', value: parseInt(data.technical) || 5 },
+                { name: 'Psychology & People', value: parseInt(data.psychology) || 5 },
+                { name: 'Business & Strategy', value: parseInt(data.business) || 5 },
+                { name: 'Leadership & Management', value: parseInt(data.leadership) || 5 }
+            ];
+            
+            skills.sort(function(a, b) { return b.value - a.value; });
+            
+            return skills.slice(0, 3).map(function(skill) {
+                return skill.name + ' (' + skill.value + '/10)';
+            }).join(', ');
+        }
+        
+        function copyToClipboard(elementId) {
+            var element = document.getElementById(elementId);
+            var text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(function() {
+                var button = element.nextElementSibling;
+                var originalText = button.textContent;
+                button.textContent = '✅ Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(function() {
+                // Fallback for older browsers
+                var textArea = document.createElement('textarea');
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                
+                showNotification('📋 Copied to clipboard!');
+            });
+        }
+        
+        function copyAllResults() {
+            if (!currentResults) return;
+            
+            var allText = `
+═══════════════════════════════════════════════════════════════════
+🧬 COMPLETE PERSONAL BRAND DNA PACKAGE
+═══════════════════════════════════════════════════════════════════
+
+${currentResults.blueprint}
+
+${currentResults.prompt}
+
+${currentResults.roadmap}
+
+${currentResults.monetization}
+
+${currentResults.content}
+
+═══════════════════════════════════════════════════════════════════
+Generated by Ultimate Personal Brand DNA Decoder
+Framework: Dan Koe + Matt Grey + Alex Hormozi + Nghiem Hue
+Date: ${new Date().toLocaleDateString()}
+═══════════════════════════════════════════════════════════════════
+            `;
+            
+            navigator.clipboard.writeText(allText).then(function() {
+                showNotification('🎉 Complete DNA package copied to clipboard!');
+            }).catch(function() {
+                showNotification('❌ Copy failed. Please try individual sections.');
+            });
+        }
+        
+        function shareResults() {
+            if (navigator.share && currentResults) {
+                navigator.share({
+                    title: 'My Personal Brand DNA Results',
+                    text: 'Check out my personal brand DNA analysis!',
+                    url: window.location.href
+                });
+            } else {
+                showNotification('📤 Sharing not supported. Use copy button instead.');
+            }
+        }
+        
+        function showNotification(message) {
+            var notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(function() {
+                document.body.removeChild(notification);
+            }, 3000);
+        }
+        
+        // Initialize the application
+        window.onload = function() {
+            showStep(1);
+            updateProgress();
+        };
+    </script>
+</body>
+</html>
